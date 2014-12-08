@@ -1,0 +1,11 @@
+template(name="home")
+  .container
+    h1 Products
+    .row
+      each products
+        .product.col-md-3
+          h4= title
+          p Price in cents == {{price}}
+          +autoForm collection="Products" id=_id doc=this type="update"
+            +afQuickField name="price" label="Price in Dollars"
+            button(type="submit") Submit
